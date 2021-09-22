@@ -23,11 +23,9 @@ var Ennemy = function(name, color, position, direction) {
 };
 
 Ennemy.prototype.dead = function () {
-    this.graphic.position.z = this.graphic.position.z-0.1;
-        //Nettoyage de la div container
-        $("#container").html("");
-        jQuery('#'+this.name+' >.life').text("Tu es mort !");
-        init();
+    this.graphic.position.z = this.graphic.position.z - 0.1;
+    this.graphic.position.x = 10000;
+    this.graphic.position.y = 10000;
 }
 
 Ennemy.prototype.accelerate = function (distance) {

@@ -31,17 +31,14 @@ function init()
     light1 = new Light("sun", 0xffffff, "0,0,340");
     scene.add(light1);
 
-    ennemies = [];
-
     ennemy1 = new Ennemy("ennemy1", 0xff0000, new THREE.Vector2(50, -100), 1);
     scene.add(ennemy1.graphic);
-    ennemies.push(ennemy1.graphic);
-
+    ennemies.push(ennemy1);
+/*
     ennemy2 = new Ennemy("ennemy2", 0xff0000, new THREE.Vector2(-100, 50), 1);
     scene.add(ennemy2.graphic);
-    ennemies.push(ennemy2.graphic);
-    
-    //scene.add(ennemies);
+    ennemies.push(ennemy2);
+*/
 }
 
 function Ground(color, size_x, size_y, nb_tile)

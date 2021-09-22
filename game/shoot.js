@@ -37,16 +37,23 @@ function collisions()
     bullet_collision();
     player_collision();
     player_falling();
-    spaceship_shooted();
+    spaceship_shooted(ennemies);
 }
 
-function spaceship_shooted()
+function spaceship_shooted(ennemies)
 {
     for (var i = 0; i < player1.bullets.length; i++)
-        for (var j = 0; i < ennemies.length; j++)
-            if (player1.bullets[i].position.x == ennemies[j].position.x
-                && player1.bullets[i].position.y == ennemies[j].position.y)
+        for (var j = 0; j < ennemies.length; j++)
+        {
+            if ((player1.bullets[i].position.x < ennemies[j].position.x + 5
+                  && player1.bullets[i].position.x > ennemies[j].position.x - 5)
+                && (player1.bullets[i].position.y < ennemies[j].position.y + 5
+                  && player1.bullets[i].position.y > ennemies[j].position.y - 5))
+            {
                 ennemies[j].dead();
+                ennemies.splice(j, 1);
+            }
+        }
 }
 
 function bullet_collision()

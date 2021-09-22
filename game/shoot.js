@@ -37,6 +37,16 @@ function collisions()
     bullet_collision();
     player_collision();
     player_falling();
+    spaceship_shooted();
+}
+
+function spaceship_shooted()
+{
+    for (var i = 0; i < player1.bullets.length; i++)
+        for (var j = 0; i < ennemies.length; j++)
+            if (player1.bullets[i].position.x == ennemies[j].position.x
+                && player1.bullets[i].position.y == ennemies[j].position.y)
+                ennemies[j].dead();
 }
 
 function bullet_collision()
@@ -84,6 +94,9 @@ function player_falling()
 
     for (var i = 0; i < length; i++) {
         element = noGround[i];
+        
+        if (!element)
+            break;
 
         var tileX = (element[0]) | 0;
         var tileY = (element[1]) | 0;

@@ -1,8 +1,7 @@
-var Ennemy = function(name, color, position, graphicPosition, direction) {
+var Ennemy = function(name, color, position, direction) {
 
     this.name = name;
     this.position = position;
-    console.log(this.position)
     this.life = 3;
     this.bullets = new Array();
     this.direction = direction;
@@ -17,8 +16,8 @@ var Ennemy = function(name, color, position, graphicPosition, direction) {
     vehiculeMesh = new THREE.ConeGeometry(5, 20, 32);
     this.graphic = new THREE.Mesh(vehiculeMesh, this.material);
     this.graphic.position.z = 6;
-    this.graphic.position.x = graphicPosition.x;
-    this.graphic.position.y = graphicPosition.y;
+    this.graphic.position.x = position.x;
+    this.graphic.position.y = position.y;
 
     this.graphic.rotateOnAxis(new THREE.Vector3(0,0,1), this.direction+(3*Math.PI/2));
 };

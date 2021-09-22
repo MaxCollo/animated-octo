@@ -30,6 +30,14 @@ function init()
 
     light1 = new Light("sun", 0xffffff, "0,0,340");
     scene.add(light1);
+
+    ennemy1 = new Ennemy("ennemy1", 0xff0000, new THREE.Vector2(50, -100), 1);
+    scene.add(ennemy1.graphic);
+    ennemies.push(ennemy1);
+
+    ennemy2 = new Ennemy("ennemy2", 0xff0000, new THREE.Vector2(-100, 50), 1);
+    scene.add(ennemy2.graphic);
+    ennemies.push(ennemy2);
 }
 
 function Ground(color, size_x, size_y, nb_tile)
@@ -47,7 +55,10 @@ function Ground(color, size_x, size_y, nb_tile)
     for (x = minX; x <= maxX; x = x+sizeOfTileX){
         for (y = minY; y <= maxY; y = y+sizeOfTileY){
 
-            color = colors[Math.floor(Math.random()*colors.length)];
+            if (x == sizeOfTileX && y == 0)
+                color = 0xffffff; // Set the spawn tile to white
+            else
+                color = colors[Math.floor(Math.random()*colors.length)];
        
             if (0x000000 != color)
             {
@@ -66,7 +77,7 @@ function Ground(color, size_x, size_y, nb_tile)
 
 function Light(name, color, position)
 {
-    pointLight = new THREE.PointLight(color, 50, 350);
+    pointLight = new THREE.PointLight(color, 5000, 5000);
 
     pointLight.position.x = position.split(',')[0];
     pointLight.position.y = position.split(',')[1];

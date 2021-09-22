@@ -34,11 +34,10 @@ function init()
     ennemy1 = new Ennemy("ennemy1", 0xff0000, new THREE.Vector2(50, -100), 1);
     scene.add(ennemy1.graphic);
     ennemies.push(ennemy1);
-/*
+
     ennemy2 = new Ennemy("ennemy2", 0xff0000, new THREE.Vector2(-100, 50), 1);
     scene.add(ennemy2.graphic);
     ennemies.push(ennemy2);
-*/
 }
 
 function Ground(color, size_x, size_y, nb_tile)

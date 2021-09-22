@@ -38,16 +38,19 @@ function Ground(color, size_x, size_y, nb_tile)
 
     sizeOfTileX = size_x / nb_tile;
     minX = -(size_x/2);
-    maxX = (size_x/2);
+    maxX = (size_x/2); //7eme
     
     sizeOfTileY = size_y / nb_tile;
     minY = -(size_y/2);
-    maxY = (size_y/2);
+    maxY = (size_y/2); // 6eme
 
     for (x = minX; x <= maxX; x = x+sizeOfTileX){
         for (y = minY; y <= maxY; y = y+sizeOfTileY){
 
-            color = colors[Math.floor(Math.random()*colors.length)];
+            if (x == sizeOfTileX && y == 0)
+                color = 0xffffff;
+            else
+                color = colors[Math.floor(Math.random()*colors.length)];
        
             if (0x000000 != color)
             {
